@@ -52,7 +52,7 @@ async def on_ready():
 async def reply(ctx):
     message = await ctx.channel.fetch_message(ctx.message.reference.message_id)
 
-    response = generate_sarcastic_response(message.content)
+    response = generate_chatgpt_response(message.content)
 
     await ctx.send(response)
 
@@ -60,7 +60,7 @@ async def reply(ctx):
 async def insult(ctx):
     message = await ctx.channel.fetch_message(ctx.message.reference.message_id)
 
-    response = generate_chatgpt_response(message.content)
+    response = generate_sarcastic_response(message.content)
 
     await ctx.send(response)
 
