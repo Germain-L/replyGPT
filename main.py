@@ -12,7 +12,7 @@ activity = discord.Activity(
 intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix='!', intents=intents,
-                   activity=activity, status=discord.Status.idle)
+                   activity=activity, status=discord.Status.online)
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 DISCORD_KEY = os.getenv("DISCORD_KEY")
