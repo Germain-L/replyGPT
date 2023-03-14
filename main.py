@@ -21,7 +21,7 @@ DISCORD_KEY = os.getenv("DISCORD_KEY")
 def generate_sarcastic_response(prompt):
     response = openai.Completion.create(
         engine="text-davinci-002",
-        prompt=f"Reply to this message in the same language with sarcasm : {prompt}",
+        prompt=f"Write an insult based on this message for me to reply with : {prompt}",
         max_tokens=60,
         n=1,
         stop=None,
@@ -53,7 +53,7 @@ async def on_ready():
 async def r(ctx):
     message = await ctx.channel.fetch_message(ctx.message.reference.message_id)
 
-    response = generate_chatgpt_response(message.content)
+    response = generate_sarcastic_response(message.content)
 
     await ctx.send(response)
 
