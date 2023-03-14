@@ -26,9 +26,6 @@ def generate_sarcastic_response(prompt):
     )
     return response["choices"][0]["text"].strip()
 
-# prompt = "I'm so good at math."
-# print(generate_sarcastic_response(prompt))
-
 
 @bot.event
 async def on_ready():
@@ -38,13 +35,6 @@ async def on_ready():
 @bot.command()
 async def r(ctx):
     message = await ctx.channel.fetch_message(ctx.message.reference.message_id)
-
-    # message_content = translator.translate(message.content)
-
-    # keywords = modelling.get_keywords(message_content)
-    # gif = gif_searcher.search_gif(keywords)
-
-    # print(f'{ctx.author}, sending a gif to {message.author} with keywords {keywords}')
     
     response = generate_sarcastic_response(message.content)
 
